@@ -1,4 +1,4 @@
-## Samples of using Stimulsoft Reports.JS in the JavaScript applications
+# Samples of using Stimulsoft Reports.JS components in the HTML / JavaScript applications
 
 In this repository are available examples of using Reports.JS reporting tool on Web pages using pure JavaScript.
 
@@ -11,11 +11,13 @@ To launch these examples, you can use any web-server. Below are some options:
 
 **Note:** The [Demo](https://github.com/stimulsoft/Samples-JS-Native-Report-Builder/tree/master/Demo) project written in the HTML/JS, this application demonstrates using Stimulsoft Reports.JS without any server side – it works in the browser from the local disk storage. Many types of reports are available for work.
 
-## Angular, AngularJS, React, Node.js, and Vue.js samples
+# Angular, AngularJS, React, Node.js, and Vue.js samples
 
 Examples for these frameworks can be found in the repositories listed below:
-* [Angular and AngularJS](https://github.com/stimulsoft/Samples-JS-Angular-Report-Generator)
-* [React, Node.js, Vue.js](https://github.com/stimulsoft/Samples-JS-React-Node.js-Vue.js-Reporting-Tools)
+
+[Angular and AngularJS](https://github.com/stimulsoft/Samples-JS-Angular-Report-Generator)
+
+[React, Node.js, Vue.js](https://github.com/stimulsoft/Samples-JS-React-Node.js-Vue.js-Reporting-Tools)
 
 
 # About Reports.JS product
