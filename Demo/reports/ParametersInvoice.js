@@ -1,4 +1,4 @@
-﻿var ParametersInvoice = {
+var ParametersInvoice = {
   "ReportVersion": "2021.3.4.0",
   "ReportGuid": "aca495a5883045a39c14d939b4053eff",
   "ReportName": "ParametersInvoice",

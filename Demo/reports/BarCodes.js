@@ -1,4 +1,4 @@
-﻿var BarCodes = {
+var BarCodes = {
   "ReportVersion": "2021.3.4.0",
   "ReportGuid": "d094058745064bfe842a79a3ab1c6ba5",
   "ReportName": "Report",

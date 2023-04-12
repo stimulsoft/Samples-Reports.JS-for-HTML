@@ -1,4 +1,4 @@
-﻿var ParametersDetailedOrders = {
+var ParametersDetailedOrders = {
   "ReportVersion": "2021.3.4.0",
   "ReportGuid": "01fcb97073fa43e58ffa9257f915a081",
   "ReportName": "ParametersDetailedOrders",
