@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Merging Several Reports into One</title>
+
+        <!-- Stimulsoft Reports.JS -->
+        <script
+            src="../scripts/stimulsoft.reports.js"
+            type="text/javascript"
+        ></script>
+        <script
+            src="../scripts/stimulsoft.viewer.js"
+            type="text/javascript"
+        ></script>
+        <script type="text/javascript">
+            function useRenderAsync(){
+
+                //Create and load a first report
+                var report1 = new Stimulsoft.Report.StiReport();
+                report1.loadFile("../reports/SimpleList.mrt");
+
+                //Create and load a second report
+                var report2 = new Stimulsoft.Report.StiReport();
+                report2.loadFile("../reports/SimpleGroup.mrt");
+
+                // Create report to be used as merge result
+                var reportMerge = new Stimulsoft.Report.StiReport();
+                reportMerge.reportUnit = report1.reportUnit;
+                reportMerge.renderAsync(function () {
+
+                    // Clear rendered pages of the target Report,
+                    // they are to be replaced with pages of the source reports
+                    reportMerge.renderedPages.clear();
+
+                    // Render the first report and add rendered pages of it into target report
+                    report1.renderAsync(function () {
+                        for (var index = 0; index < report1.renderedPages.count; index++) {
+                            reportMerge.renderedPages.add(report1.renderedPages.getByIndex(index));
+                        }
+
+                        // Render the second report and add rendered pages of it into target report
+                        report2.renderAsync(function () {
+                            for (var index = 0; index < report2.renderedPages.count; index++) {
+                                reportMerge.renderedPages.add(report2.renderedPages.getByIndex(index));
+                            }
+
+                            // Ensure continuous numbering of pages
+                            for (var index = 0; index < reportMerge.renderedPages.count; index++) {
+                                var page = reportMerge.renderedPages.getByIndex(index)
+                                // Name of page number component in the first report
+                                var component = page.components.getByName('Text5');
+
+                                // Name of page number component in the second report
+                                if (!component)
+                                    component = page.components.getByName('Text6');
+
+                                // Set displayed page number
+                                if (component)
+                                    component.text = 'Page ' + (index + 1) + ' of ' + reportMerge.renderedPages.count;
+                            }
+
+                            // Put resulting report into viewer
+                            viewer.report = reportMerge;
+                        });
+                    });
+                });
+            }
+        </script>
+        <script type="text/javascript">
+            async function useRenderAsync2(){
+                //Create and load a first report
+                var report1 = new Stimulsoft.Report.StiReport();
+                report1.loadFile("../reports/SimpleList.mrt");
+
+                //Create and load a second report
+                var report2 = new Stimulsoft.Report.StiReport();
+                report2.loadFile("../reports/SimpleGroup.mrt");
+
+                // Create report to be used as merge result
+                var reportMerge = new Stimulsoft.Report.StiReport();
+                reportMerge.reportUnit = report1.reportUnit;
+                await reportMerge.renderAsync2();
+                reportMerge.renderedPages.clear();
+
+                // Render the first report and add rendered pages of it into target report
+                await report1.renderAsync2();
+                report1.renderedPages.list.forEach(page => reportMerge.renderedPages.add(page));
+
+                // Render the second report and add rendered pages of it into target report
+                await report2.renderAsync2();
+                report2.renderedPages.list.forEach(page => reportMerge.renderedPages.add(page));
+
+                // Ensure continuous numbering of pages
+                reportMerge.renderedPages.list.forEach((page, index, pages)=>{
+                    // Name of page number component in the first report
+                    var component = page.components.getByName('Text5');
+
+                    // Name of page number component in the second report
+                    if (!component)
+                        component = page.components.getByName('Text6');
+
+                    // Set displayed page number
+                    if (component) {
+                        component.text = 'Page ' + (index + 1) + ' of ' + pages.length;
+                    }
+
+
+                });
+
+                //Return merged report
+                return reportMerge;
+            }
+        </script>
+        <script type="text/javascript">
+            async function exportToPDF(){
+                //Render and merge a several reports
+                var report = await useRenderAsync2();
+
+                report.exportDocumentAsync(function (pdfData) {
+                    // Get report file name
+                    var fileName = report.reportAlias;
+                    // Save data to file
+                    Stimulsoft.System.StiObject.saveAs(pdfData, fileName + ".pdf", "application/pdf");
+                }, Stimulsoft.Report.StiExportFormat.Pdf);
+            }
+        </script>
+    </head>
+
+    <body>
+        <div><h3>Merging Several Reports into One</h3></div>
+        <div>
+            <label for="buttons">Select a method for rendering reports:</label>
+            <div style="margin-top: 5px;" id="buttons">
+                <input id="renderAsync" type="submit" value="renderAsync()" />
+                <input id="renderAsync2" type="submit" value="renderAsync2()" />
+                <input id="export" type="submit" value="Export to Pdf" />
+            </div>
+        </div>
+        <div id="viewer">
+            <script type="text/javascript">
+                let renderAsyncBtn = document.getElementById('renderAsync');
+                let renderAsync2Btn = document.getElementById('renderAsync2');
+                let exportBtn = document.getElementById('export');
+
+                renderAsyncBtn.addEventListener('click', useRenderAsync);
+                renderAsync2Btn.addEventListener('click', async () => {
+                    // Put resulting report into viewer
+                    viewer.report = await useRenderAsync2();
+                });
+                exportBtn.addEventListener('click', exportToPDF);
+
+                // Create viewer
+                var viewer = new Stimulsoft.Viewer.StiViewer(null, "StiViewer", false);
+                // Show the report viewer in this place
+                viewer.renderHtml("viewer");
+            </script>
+        </div>
+    </body>
+</html>
