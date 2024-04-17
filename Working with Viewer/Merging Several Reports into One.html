@@ -29,14 +29,14 @@
                 reportMerge.reportUnit = report1.reportUnit;
                 reportMerge.renderAsync(function () {
 
-                // Clear rendered pages of the target Report, they are to be replaced with pages of the source reports
-                reportMerge.renderedPages.clear();
+                    // Clear rendered pages of the target Report, they are to be replaced with pages of the source reports
+                    reportMerge.renderedPages.clear();
 
-                // Render the first report and add rendered pages of it into target report
-                report1.renderAsync(function () {
-                    for (var index = 0; index < report1.renderedPages.count; index++) {
-                        reportMerge.renderedPages.add(report1.renderedPages.getByIndex(index));
-                    }
+                    // Render the first report and add rendered pages of it into target report
+                    report1.renderAsync(function () {
+                        for (var index = 0; index < report1.renderedPages.count; index++) {
+                            reportMerge.renderedPages.add(report1.renderedPages.getByIndex(index));
+                        }
 
                     // Render the second report and add rendered pages of it into target report
                     report2.renderAsync(function () {
@@ -45,27 +45,27 @@
                         }
 
                     // Ensure continuous numbering of pages
-                        for (var index = 0; index < reportMerge.renderedPages.count; index++) {
-                            var page = reportMerge.renderedPages.getByIndex(index)
+                    for (var index = 0; index < reportMerge.renderedPages.count; index++) {
+                        var page = reportMerge.renderedPages.getByIndex(index)
 
-                            // Name of page number component in the first report
-                            var component = page.components.getByName('Text5');
+                        // Name of page number component in the first report
+                        var component = page.components.getByName('Text5');
 
-                            // Name of page number component in the second report
-                            if (!component)
+                        // Name of page number component in the second report
+                        if (!component)
                                 component = page.components.getByName('Text6');
 
-                            // Set displayed page number
-                                if (component)
-                                    component.text = 'Page ' + (index + 1) + ' of ' + reportMerge.renderedPages.count;
-                            }
+                        // Set displayed page number
+                        if (component)
+                            component.text = 'Page ' + (index + 1) + ' of ' + reportMerge.renderedPages.count;
+                        }
 
                             // Put resulting report into viewer
-                            viewer.report = reportMerge;
-                        });
+                        viewer.report = reportMerge;
                     });
                 });
-            }
+            });
+        }
 
             async function useRenderAsyncAwait(){
 
