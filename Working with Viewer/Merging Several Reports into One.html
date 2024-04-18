@@ -27,6 +27,7 @@
                 // Create report to be used as merge result
                 var reportMerge = new Stimulsoft.Report.StiReport();
                 reportMerge.reportUnit = report1.reportUnit;
+                report2.reportUnit = reportMerge.reportUnit; 
                 reportMerge.renderAsync(function () {
 
                     // Clear rendered pages of the target Report, they are to be replaced with pages of the source reports
@@ -80,16 +81,24 @@
                 // Create report to be used as merge result
                 var reportMerge = new Stimulsoft.Report.StiReport();
                 reportMerge.reportUnit = report1.reportUnit;
+                report2.reportUnit = reportMerge.reportUnit;
+
                 await reportMerge.renderAsync2();
                 reportMerge.renderedPages.clear();
 
                 // Render the first report and add rendered pages of it into target report
                 await report1.renderAsync2();
-                report1.renderedPages.list.forEach(function(page) {reportMerge.renderedPages.add(page)});
+                report1.renderedPages.list.forEach(function(page) {
+                    reportMerge.renderedPages.add(page);
+                    page.report = reportMerge;
+                });
 
                 // Render the second report and add rendered pages of it into target report
                 await report2.renderAsync2();
-                report2.renderedPages.list.forEach(function(page) {reportMerge.renderedPages.add(page)});
+                report2.renderedPages.list.forEach(function(page) {
+                    reportMerge.renderedPages.add(page);
+                    page.report = reportMerge;
+                });
 
                 // Ensure continuous numbering of pages
                 reportMerge.renderedPages.list.forEach(function(page, index, pages) {
