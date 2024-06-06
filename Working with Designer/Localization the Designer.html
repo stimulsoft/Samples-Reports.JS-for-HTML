@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Changing the Designer Theme</title>
+
+	<!-- Stimulsoft Reports.JS -->
+	<script src="../scripts/stimulsoft.reports.js" type="text/javascript"></script>
+	<script src="../scripts/stimulsoft.viewer.js" type="text/javascript"></script>
+	<script src="../scripts/stimulsoft.designer.js" type="text/javascript"></script>
+	<script src="../scripts/stimulsoft.blockly.editor.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<div>
+		<script type="text/javascript">
+			/*
+				This sample demonstrates how to add and set localization files for Stimulsoft Designer.
+				To achieve this, you can use the addLocalizationFile() or setLocalizationFile() methods.
+				
+				Get the full list of localization files from our repository on GitHub via this link:
+				https://github.com/stimulsoft/Stimulsoft.Reports.Localization
+			*/
+
+			// Simple ways to add a localization file to the menu
+			Stimulsoft.Base.Localization.StiLocalization.addLocalizationFile("../localizations/de.xml");
+
+			// Add a localization file to the menu and use a custom label. Note that the file will not load until it is chosen
+			Stimulsoft.Base.Localization.StiLocalization.addLocalizationFile("../localizations/ja.xml", false, "MyLabel");
+
+			// Add a localization file to the menu and load the file when the designer is started
+			Stimulsoft.Base.Localization.StiLocalization.addLocalizationFile("../localizations/ko.xml", true);
+
+			// Add a localization file and set it as the default. The default file will be loaded before the designer starts
+			Stimulsoft.Base.Localization.StiLocalization.addLocalizationFile("../localizations/pt.xml", true);
+			Stimulsoft.Base.Localization.StiLocalization.cultureName = 'Portuguese';
+
+			// Use the setLocalization method to set a default localization file
+			// Stimulsoft.Base.Localization.StiLocalization.setLocalizationFile("../localizations/fr.xml");
+
+			// Delete all localization files from the menu and set only one
+			// Stimulsoft.Base.Localization.StiLocalization.setLocalizationFile("../localizations/zh-chs.xml", true);
+
+			var designer = new Stimulsoft.Designer.StiDesigner();
+			// Create a new report instance
+			var report = new Stimulsoft.Report.StiReport();
+			// Load report from url
+			report.loadFile("../reports/SimpleList.mrt");
+			// Edit report template in the designer
+			designer.report = report;
+		</script>
+	</div>
+</body>
+
+</html>
