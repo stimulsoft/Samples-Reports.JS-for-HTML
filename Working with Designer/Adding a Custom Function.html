@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="shortcut icon" href="../favicon.ico" />
+        <title>Adding a Custom Function</title>
+
+        <!-- Stimulsoft Reports.JS -->
+        <script src="../scripts/stimulsoft.reports.js" type="text/javascript"></script>
+        <script src="../scripts/stimulsoft.viewer.js" type="text/javascript"></script>
+        <script src="../scripts/stimulsoft.designer.js" type="text/javascript"></script>
+        <script src="../scripts/stimulsoft.blockly.editor.js" type="text/javascript"></script>
+
+        <!-- Dashboard designer scripts, may be external -->
+        <script type="text/javascript">
+            var designer = new Stimulsoft.Designer.StiDesigner(null, 'StiDesigner', false);
+            var report = new Stimulsoft.Report.StiReport();
+
+            //Create a Custom Function
+            var myFunc = function (value) {
+                return value.toUpperCase();
+            };
+
+            //Add a New Custom Function to Dictionary
+            Stimulsoft.Report.Dictionary.StiFunctions.addFunction('MyCategory', 'MyFunction', 'MyFunction', 'Returns a string converted to uppercase', '', String, 'String in the uppercase', [String], ['value'], ['The text string'], myFunc);
+
+            //Create a Text Component
+            var page = report.pages.getByIndex(0);
+            var dataText = new Stimulsoft.Report.Components.StiText();
+            dataText.clientRectangle = new Stimulsoft.System.Drawing.Rectangle(1, 1, 8, 2);
+            dataText.border.side = Stimulsoft.Base.Drawing.StiBorderSides.All;
+
+            //Define a TextBox Expression Using the Custom Function to Convert a String to Uppercase
+            dataText.text = 'Invoke custom function: {MyFunction("hello, world")}';
+
+            //Add the TextBox to the Report Page
+            page.components.add(dataText);
+
+            designer.report = report;
+        </script>
+    </head>
+
+    <body>
+        Adding a Custom Function
+        <br /><br />
+
+        <div>
+            <script type="text/javascript">
+                designer.renderHtml();
+            </script>
+        </div>
+    </body>
+</html>

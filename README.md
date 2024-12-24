@@ -28,6 +28,7 @@ A set of examples for working with the Report Viewer:
 * [Using Viewer Events](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Viewer/Using%20Viewer%20Events.html)
   
 A set of examples for working with the Report Designer:
+* [Adding a Custom Function](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Adding%20a%20Custom%20Function.html)
 * [Adding a Font to the Resource](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Adding%20a%20Font%20to%20the%20Resource.html)
 * [Changing the Designer Theme](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Changing%20the%20Designer%20Theme.html)
 * [Customizing the Designer](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Customizing%20the%20Designer.html)
