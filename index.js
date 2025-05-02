@@ -12,6 +12,11 @@ var mimeTypes = {
 
 http.createServer(function (req, res) {
     var uri = decodeURI(url.parse(req.url).pathname);
+    if (path.normalize(uri) !== uri) {
+        res.writeHead(403, "Forbidden", { 'Content-Type': 'text/plain' });
+        res.end();
+        return;
+    }
     if (uri === "/reports/ProtectedDemo.json" && req.headers["x-auth-token"] !== "*YOUR TOKEN*") {        
         console.log("No custom header provided");
         res.writeHead(403, "Forbidden", { 'Content-Type': 'text/plain' });
