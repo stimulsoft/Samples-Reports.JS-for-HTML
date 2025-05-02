@@ -1,0 +1,62 @@
+{
+  "ReportVersion": "2025.2.3",
+  "ReportGuid": "fb64eefb7b99f76319e30f7689048b2c",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportFile": "../reports/FontsAsOne.mrt",
+  "ReportCreated": "/Date(1746112683000+0200)/",
+  "ReportChanged": "/Date(1746166823000+0200)/",
+  "EngineVersion": "EngineV2",
+  "ReportUnit": "Centimeters",
+  "CalculationMode": "Interpretation",
+  "Pages": {
+    "0": {
+      "Ident": "StiPage",
+      "Name": "Page1",
+      "Guid": "085e8530015bc78914af372cd831f698",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:",
+      "Components": {
+        "0": {
+          "Ident": "StiText",
+          "Name": "Text1",
+          "ClientRectangle": "1.2,1,5.6,7",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Text": {
+            "Value": "Arial"
+          },
+          "Font": "MyFont;;;",
+          "Border": "All;;;;;;;solid:0,0,0",
+          "Brush": "solid:",
+          "TextBrush": "solid:Black",
+          "Type": "Expression"
+        },
+        "1": {
+          "Ident": "StiText",
+          "Name": "Text2",
+          "Guid": "546ca877cc66943fa5828b7cfa203c5b",
+          "ClientRectangle": "8,0.99,5.6,7",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Text": {
+            "Value": "Arial Black"
+          },
+          "Font": "MyFont;;Bold;",
+          "Border": "All;;;;;;;solid:0,0,0",
+          "Brush": "solid:",
+          "TextBrush": "solid:Black",
+          "Type": "Expression"
+        }
+      },
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      }
+    }
+  }
+}

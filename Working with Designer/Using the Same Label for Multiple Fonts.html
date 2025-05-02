@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="shortcut icon" href="../favicon.ico" />
-        <title>Registering a Fonts Folder</title>
+        <title>Using the Same Label for Multiple Fonts</title>
 
         <!-- Stimulsoft Reports.JS -->
         <script src="../scripts/stimulsoft.reports.js" type="text/javascript"></script>
@@ -14,21 +14,16 @@
         <!-- Dashboard designer scripts, may be external -->
         <script type="text/javascript">
             // Initialize and configure a font collection
-            const myFontCollection = [
+            var myFontCollection = [
                 {
-                    fontName: 'Long Cang',
+                    fontName: 'MyFont',
                     fontStyle: 'Regular',
-                    fontPath: '../Fonts/LongCang-Regular.ttf',
+                    fontPath: '../Fonts/Arial.ttf',
                 },
                 {
-                    fontName: 'Noto Sans SC',
-                    fontStyle: 'Regular',
-                    fontPath: '../Fonts/NotoSansSC-Regular.ttf',
-                },
-                {
-                    fontName: 'Stick',
-                    fontStyle: 'Regular',
-                    fontPath: '../Fonts/Stick-Regular.ttf',
+                    fontName: 'MyFont',
+                    fontStyle: 'Bold',
+                    fontPath: '../Fonts/Ariblk.ttf',
                 },
             ];
 
@@ -39,12 +34,19 @@
             designer.renderHtml('content');
 
             var report = new Stimulsoft.Report.StiReport();
+            report.loadFile('../reports/FontsAsOne.mrt');
+
+            let text1 = report.pages.getByIndex(0).components.getByName('Text1');
+            let text2 = report.pages.getByIndex(0).components.getByName('Text2');
+            text1.text = 'Arial';
+            text2.text = 'Arial Black';
+
             designer.report = report;
         </script>
     </head>
 
     <body>
-        Registering a Fonts Folder
+        Using the Same Label for Multiple Fonts
         <br /><br />
 
         <div id="content"></div>

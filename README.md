@@ -34,12 +34,14 @@ A set of examples for working with the Report Designer:
 * [Customizing the Designer](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Customizing%20the%20Designer.html)
 * [Editing a Report Template in the Designer](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Editing%20a%20Report%20Template%20in%20the%20Designer.html)
 * [Localization the Designer](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Localization%20the%20Designer.html)
+* [Registering a Fonts Folder](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Registering%20a%20Fonts%20Folder.html)
 * [Showing the Designer Immediately after Running an App](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Showing%20the%20Designer%20Immediately%20after%20Running%20an%20App.html)
 * [Showing the Designer in a Required Position](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Showing%20the%20Designer%20in%20a%20Required%20Position.html)
 * [Showing the Designer in iframe](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Showing%20the%20Designer%20in%20iframe.html)
 * [Using a Custom Data Adapter](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Using%20a%20Custom%20Data%20Adapter.html)
 * [Using Designer Events](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Using%20Designer%20Events.html)
 * [Using the Full-Screen Mode in the Designer](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Using%20the%20Full-Screen%20Mode%20in%20the%20Designer.html)
+* [Using the Same Label for Multiple Fonts](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Using%20the%20Same%20Label%20for%20Multiple%20Fonts.html)
   
 Application for working with Reports without any web-server:
 * [Demo App](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/tree/main/Demo)
