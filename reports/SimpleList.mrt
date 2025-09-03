@@ -176,7 +176,7 @@
             <Text11 Ref="13" type="Text" isKey="true">
               <Border>Top, Left, Right;[255:255:255];1;Solid;False;4;Black</Border>
               <Brush>[255:164:114]</Brush>
-              <ClientRectangle>270,0,200,40</ClientRectangle>
+              <ClientRectangle>320,0,180,40</ClientRectangle>
               <ComponentStyle>Header2</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
@@ -192,7 +192,7 @@
             <Text12 Ref="14" type="Text" isKey="true">
               <Border>Top;[255:255:255];1;Solid;False;4;Black</Border>
               <Brush>[255:164:114]</Brush>
-              <ClientRectangle>470.5,0,119,40</ClientRectangle>
+              <ClientRectangle>500,0,110,40</ClientRectangle>
               <ComponentStyle>Header2</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
@@ -209,7 +209,7 @@
             <Text13 Ref="15" type="Text" isKey="true">
               <Border>Top, Left;[255:255:255];1;Solid;False;4;Black</Border>
               <Brush>[255:164:114]</Brush>
-              <ClientRectangle>590,0,159,40</ClientRectangle>
+              <ClientRectangle>610,0,139,40</ClientRectangle>
               <ComponentStyle>Header2</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
@@ -225,7 +225,7 @@
             <Text10 Ref="16" type="Text" isKey="true">
               <Border>Top, Left, Right;[255:255:255];1;Solid;False;4;Black</Border>
               <Brush>[255:164:114]</Brush>
-              <ClientRectangle>30,0,240,40</ClientRectangle>
+              <ClientRectangle>100,0,220,40</ClientRectangle>
               <ComponentStyle>Header2</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
@@ -239,10 +239,9 @@
               <VertAlignment>Center</VertAlignment>
             </Text10>
             <Text5 Ref="17" type="Text" isKey="true">
-              <Border>Top;[255:255:255];1;Solid;False;4;Black</Border>
+              <Border>Top, Right;[255:255:255];1;Solid;False;4;Black</Border>
               <Brush>[255:164:114]</Brush>
-              <ClientRectangle>0,0,29.5,40</ClientRectangle>
-              <ComponentStyle>Header2</ComponentStyle>
+              <ClientRectangle>0,0,100,40</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Segoe UI,12,Bold,Point,False,204</Font>
@@ -252,6 +251,7 @@
               <Parent isRef="12" />
               <Text>№</Text>
               <TextBrush>[255:255:255]</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text5>
@@ -272,7 +272,7 @@
               <Border>All;[194:194:194];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>470,0,120,20</ClientRectangle>
+              <ClientRectangle>500,0,110,20</ClientRectangle>
               <ComponentStyle>Data1</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
@@ -291,7 +291,7 @@
               <Border>All;[194:194:194];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>590,0,159,20</ClientRectangle>
+              <ClientRectangle>610,0,139,20</ClientRectangle>
               <ComponentStyle>Data1</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
@@ -310,7 +310,7 @@
               <Border>All;[194:194:194];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>30,0,240,20</ClientRectangle>
+              <ClientRectangle>100,0,220,20</ClientRectangle>
               <ComponentStyle>Data1</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
@@ -330,7 +330,7 @@
               <Border>All;[194:194:194];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>270,0,200,20</ClientRectangle>
+              <ClientRectangle>320,0,180,20</ClientRectangle>
               <ComponentStyle>Data1</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
@@ -349,7 +349,7 @@
               <Border>All;[194:194:194];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>0,0,30,20</ClientRectangle>
+              <ClientRectangle>0,0,100,20</ClientRectangle>
               <ComponentStyle>Data1</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
@@ -405,14 +405,14 @@
   </ReferencedAssemblies>
   <ReportAlias>Simple List</ReportAlias>
   <ReportAuthor>Stimulsoft</ReportAuthor>
-  <ReportChanged>1/14/2025 11:10:35 AM</ReportChanged>
+  <ReportChanged>9/3/2025 4:02:03 PM</ReportChanged>
   <ReportCreated>5/29/2004 10:59:00 AM</ReportCreated>
   <ReportDescription>This sample demonstrates how to create a simple list report.</ReportDescription>
-  <ReportFile>D:\stimulsoft\Samples\Samples-Reports.JS-for-HTML\reports\SimpleList.mrt</ReportFile>
-  <ReportGuid>f6716adcd8d94c4b9fc0d6b4a0a3ca36</ReportGuid>
+  <ReportFile>C:\stimulsoft\Samples\Samples-Reports.JS-for-HTML\reports\SimpleList.mrt</ReportFile>
+  <ReportGuid>9ddec8fc263b4e9ba0ea42ca91343296</ReportGuid>
   <ReportName>Simple List</ReportName>
   <ReportUnit>HundredthsOfInch</ReportUnit>
-  <ReportVersion>2025.1.3.0</ReportVersion>
+  <ReportVersion>2025.3.4.0</ReportVersion>
   <Script>using System;
 using System.Drawing;
 using System.Windows.Forms;
