@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Restrict Data Source Editing</title>
+    <script src="../scripts/stimulsoft.reports.js"></script>
+    <script src="../scripts/stimulsoft.viewer.js"></script>
+    <script src="../scripts/stimulsoft.designer.js"></script>
+</head>
+
+<body>
+    <div id="designerContent"></div>
+
+    <script>
+        var permissions = Stimulsoft.Designer.StiDesignerPermissions;
+        var options = new Stimulsoft.Designer.StiDesignerOptions();
+
+        function registerData(report) {
+            var dataSet = new Stimulsoft.System.Data.DataSet("Demo");
+            dataSet.readJsonFile("../reports/Demo.json");
+            report.regData("Demo", "Demo", dataSet);
+            report.dictionary.synchronize();
+        }
+
+        // Connections, data sources and columns can be viewed and used, but not created, edited or deleted.
+        options.dictionary.dataConnectionsPermissions = permissions.View;
+        options.dictionary.dataSourcesPermissions = permissions.View;
+        options.dictionary.dataColumnsPermissions = permissions.View;
+
+        // Nothing else can bring data into the report.
+        options.dictionary.dataRelationsPermissions = permissions.None;
+        options.dictionary.dataTransformationsPermissions = permissions.None;
+        options.dictionary.businessObjectsPermissions = permissions.None;
+        options.dictionary.resourcesPermissions = permissions.None;
+        options.dictionary.showDictionaryActions = false;
+
+        var designer = new Stimulsoft.Designer.StiDesigner(options, "StiDesigner", false);
+
+        // Every report the designer creates gets the same data set.
+        designer.onCreateReport = function (args) {
+            registerData(args.report);
+        };
+
+        // An opened template may bring its own connections and data sources: they are replaced by ours.
+        designer.onOpenedReport = function (args) {
+            args.report.dictionary.databases.clear();
+            args.report.dictionary.businessObjects.clear();
+            args.report.dictionary.dataSources.clear();
+            registerData(args.report);
+        };
+
+        // Remove links to other reports from the preview copy: they would bring their own data.
+        designer.onPreviewReport = function (args) {
+            args.report.getComponents().list.forEach(function (component) {
+                if (component.subReportUrl)
+                    component.subReportUrl = null;
+
+                if (component.interaction && component.interaction.drillDownReport)
+                    component.interaction.drillDownReport = "";
+            });
+        };
+
+        // Block file drops: they add data sources bypassing the permissions.
+        document.addEventListener("drop", function (event) {
+            if (event.dataTransfer && event.dataTransfer.files.length > 0) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+        }, true);
+
+        var report = new Stimulsoft.Report.StiReport();
+        registerData(report);
+
+        designer.report = report;
+        designer.renderHtml("designerContent");
+    </script>
+</body>
+
+</html>
