@@ -35,6 +35,7 @@ A set of examples for working with the Report Designer:
 * [Editing a Report Template in the Designer](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Editing%20a%20Report%20Template%20in%20the%20Designer.html)
 * [Localization the Designer](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Localization%20the%20Designer.html)
 * [Registering a Fonts Folder](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Registering%20a%20Fonts%20Folder.html)
+* [Restricting Data Source Editing in the Designer](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Restricting%20data%20source%20editing%20in%20the%20designer.html)
 * [Showing the Designer Immediately after Running an App](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Showing%20the%20Designer%20Immediately%20after%20Running%20an%20App.html)
 * [Showing the Designer in a Required Position](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Showing%20the%20Designer%20in%20a%20Required%20Position.html)
 * [Showing the Designer in iframe](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Showing%20the%20Designer%20in%20iframe.html)
