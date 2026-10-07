@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Disable Script Execution in the Designer</title>
+    <script src="../scripts/stimulsoft.reports.js"></script>
+    <script src="../scripts/stimulsoft.viewer.js"></script>
+    <script src="../scripts/stimulsoft.designer.js"></script>
+    <!-- stimulsoft.blockly.editor.js is not loaded, so the designer has no visual script editor. -->
+
+    <style>
+        /* The designer has no option for the Events tab of the properties panel, so it is hidden by its element id. */
+        #StiDesignerpropertiesToolbarEventsTab { display: none !important; }
+    </style>
+</head>
+
+<body>
+    <div id="designerContent"></div>
+
+    <script>
+        // C# event handlers, C# user functions and C# code in expressions are not interpreted.
+        Stimulsoft.StiOptions.Engine.allowScriptsToRun = false;
+
+        // JavaScript event handlers and user functions are not evaluated.
+        Stimulsoft.StiOptions.Designer.scriptEvalAccess = Stimulsoft.Report.StiScriptEvalAccess.Deny;
+
+        var options = new Stimulsoft.Designer.StiDesignerOptions();
+
+        // The Options dialog contains the script access switch.
+        options.toolbar.showFileMenuOptions = false;
+
+        // User functions can be viewed but not created, edited or deleted.
+        options.dictionary.permissionUserFunctions = "View";
+
+        var designer = new Stimulsoft.Designer.StiDesigner(options, "StiDesigner", false);
+
+        // Blockly ignores the switches above, so all code is removed from the report copy used for preview.
+        designer.onPreviewReport = function (args) {
+            removeCode(args.report);
+        };
+
+        function removeCode(report) {
+            var StiEvent = Stimulsoft.Report.Events.StiEvent;
+            var owners = [report].concat(report.pages.list, report.getComponents().list, report.dictionary.databases.list);
+
+            owners.forEach(function (owner) {
+                Object.keys(owner).forEach(function (key) {
+                    if (owner[key] instanceof StiEvent)
+                        owner[key] = new StiEvent();
+                });
+            });
+
+            report.dictionary.userFunctions.clear();
+        }
+
+        // The template has a C# event, C# code in an expression and a Blockly event; none of them runs in the preview.
+        var report = new Stimulsoft.Report.StiReport();
+        report.loadFile("../reports/ReportWithCode.mrt");
+
+        designer.report = report;
+        designer.renderHtml("designerContent");
+    </script>
+</body>
+
+</html>

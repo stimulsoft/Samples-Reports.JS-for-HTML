@@ -32,6 +32,7 @@ A set of examples for working with the Report Designer:
 * [Adding a Font to the Resource](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Adding%20a%20Font%20to%20the%20Resource.html)
 * [Changing the Designer Theme](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Changing%20the%20Designer%20Theme.html)
 * [Customizing the Designer](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Customizing%20the%20Designer.html)
+* [Disabling Script Execution in the Designer](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Disabling%20Script%20Execution%20in%20the%20Designer.html)
 * [Editing a Report Template in the Designer](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Editing%20a%20Report%20Template%20in%20the%20Designer.html)
 * [Localization the Designer](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Localization%20the%20Designer.html)
 * [Registering a Fonts Folder](https://github.com/stimulsoft/Samples-Reports.JS-for-HTML/blob/main/Working%20with%20Designer/Registering%20a%20Fonts%20Folder.html)
